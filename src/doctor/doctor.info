@@ -1,0 +1,6 @@
+name = Doctor
+description = A Drupal ORM for custom modules.
+version = 1.0
+core = 7.x
+package = Development
+dependencies[] = libraries:libraries

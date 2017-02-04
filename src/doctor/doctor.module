@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_init).
+ */
+function doctor_init() {
+    // Register the autoloader
+    require_once 'Doctor.inc';
+    require_once 'DoctorCollection.inc';
+    spl_autoload_register('doctor_autoload');
+}
+
+/**
+ * Autoloader
+ */
+function doctor_autoload($class) {
+    // Array with namespace
+    $classname = explode('\\', $class);
+    // Format the URI
+    $filename = libraries_get_path('doctor') . '/' . strtolower(join('/', array_slice($classname, 0, -1))) . '/' . ucfirst(end($classname)) . '.php';
+    // Require the file only if it exists
+    if(file_exists($filename))
+    {
+        require_once $filename;
+    }
+}
