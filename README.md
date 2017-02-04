@@ -108,42 +108,42 @@ Doctor comes with a lot of pre-made functions :
 
 ### Database function
 ##### Create
-```
+```php
 $test = new \App\Test;
 ```
 
 ##### Find by ID
-```
+```php
 $test = \App\Test::find($id);
 ```
 
 ##### Delete
-```
+```php
 $test->delete();
 ```
 
 ##### Save changes
-```
+```php
 $test->save();
 ```
 
 ### Relationships
 ##### Belongs To
-```
+```php
 public function test2()
 {
     return $this->belongsTo('\App\TestingClass2', 'fieldOnTestingClass', 'fieldOnTestingClass2');
 }
 ```
 ##### Has Many
-```
+```php
 public function test3()
 {
     return $this->hasMany('\App\TestingClass3', 'fieldOnTestingClass', 'fieldOnTestingClass3')->get();
 }
 ```
 ##### Join
-```
+```php
 public function joinClass()
 {
     return $this->join('\App\JoinClass', '\App\OtherClass', 'field')->get();
